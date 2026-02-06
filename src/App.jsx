@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -7,8 +7,18 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
 
-
 export default function App() {
+  /* ================= THEME (DARK / LIGHT) ================= */
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "dark"
+  );
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  /* ================= SCROLL + PARALLAX ================= */
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const heroBg = document.querySelector(".hero-bg");
@@ -18,7 +28,9 @@ export default function App() {
       sections.forEach((section) => {
         const sectionTop = section.getBoundingClientRect().top;
         const triggerPoint = window.innerHeight * 0.8;
-        if (sectionTop < triggerPoint) section.classList.add("show");
+        if (sectionTop < triggerPoint) {
+          section.classList.add("show");
+        }
       });
 
       // Parallax effect
@@ -35,7 +47,10 @@ export default function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar
+        theme={theme}
+        setTheme={setTheme}
+      />
       <Hero />
       <About />
       <Skills />
