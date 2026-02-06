@@ -4,25 +4,20 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 export default function App() {
   useEffect(() => {
     const sections = document.querySelectorAll("section");
-
     const revealOnScroll = () => {
       sections.forEach((section) => {
         const sectionTop = section.getBoundingClientRect().top;
         const triggerPoint = window.innerHeight * 0.8;
-
-        if (sectionTop < triggerPoint) {
-          section.classList.add("show");
-        }
+        if (sectionTop < triggerPoint) section.classList.add("show");
       });
     };
-
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
-
     return () => window.removeEventListener("scroll", revealOnScroll);
   }, []);
 
@@ -33,6 +28,7 @@ export default function App() {
       <About />
       <Skills />
       <Projects />
+      <Contact />
     </>
   );
 }
