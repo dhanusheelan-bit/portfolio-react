@@ -5,6 +5,8 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Resume from "./components/Resume";
+
 
 export default function App() {
   useEffect(() => {
@@ -39,6 +41,7 @@ export default function App() {
       <Skills />
       <Projects />
       <Contact />
+      <Resume />
     </>
   );
 }
