@@ -8,6 +8,10 @@ export default function Skills() {
     "Python",
     "SQL",
     "Git & GitHub",
+    "Spring Boot",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
   ];
 
   return (
