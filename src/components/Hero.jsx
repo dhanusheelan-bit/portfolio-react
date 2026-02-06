@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="hero">
+    <section className="hero" id="home">
       <h1>
         Hi, I’m <span>Dhanusheelan B</span>
       </h1>
