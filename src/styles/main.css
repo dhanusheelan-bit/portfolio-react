@@ -99,6 +99,28 @@ section.show {
   max-width: 720px;
 }
 
+.hero-title {
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero-subtitle {
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 /* Parallax background */
 .hero-bg {
   position: absolute;
@@ -164,6 +186,20 @@ section.show {
   color: var(--text);
   margin-left: 1rem;
 }
+.navbar {
+  animation: slideDown 0.8s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* ================= ABOUT ================= */
 
@@ -215,12 +251,37 @@ section.show {
   background: var(--card-bg);
   padding: 2.2rem;
   border-radius: 14px;
-  transition: transform 0.3s, background 0.3s;
+  position: relative;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
 .skill-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
+
+.skill-card:hover::after {
+  opacity: 1;
+}
+
 
 /* ================= PROJECTS ================= */
 
